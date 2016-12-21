@@ -45,7 +45,7 @@ function state:update(dt)
 end
 
 function state:draw()
-  if self.state.update then
+  if self.state.draw then
     self.state.draw()
   end
 

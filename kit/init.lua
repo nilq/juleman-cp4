@@ -5,7 +5,7 @@ state  = require("kit/lib/state")
 konami = require("kit/lib/konami")
 bump   = require("kit/lib/bump")
 
-world       = bump.newWorld()
+bump_world = bump.newWorld()
 
 function love.run()
   local dt = 0
@@ -60,6 +60,7 @@ function love.run()
 
       love.graphics.origin()
 
+      state:draw()
       shack:apply()
 
       love.graphics.present()
