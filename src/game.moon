@@ -7,7 +7,9 @@ game.load = ->
   export draw_world = tiny.world!
 
   with world
-    import movement from require "src/systems"
+    import movement, controller from require "src/systems"
+
+    \addSystem controller
     \addSystem movement
 
   with draw_world
@@ -29,10 +31,12 @@ game.assemble = (t, ...) ->
   switch t
     when "player"
       p = player ...
+      bump_world\add p, p.x, p.y, p.w, p.h
 
       with world
         \addEntity p
 
       with draw_world
         \addEntity p
+
 game

@@ -2,16 +2,16 @@ local controller
 
 with tiny
   controller        = .processingSystem!
-  controller.filter = .requireAll "key.left", "key.right", "key.jump", "dx", "dy", "acc", "grounded", "jump"
+  controller.filter = .requireAll "left", "right", "jump", "dx", "dy", "acc", "grounded", "jump_height"
 
 controller.process = (e, dt) =>
   with love.keyboard
-    if .isDown e.key.right
+    if .isDown e.right
       e.dx += e.acc * dt
-    if .isDown e.key.left
+    if .isDown e.left
       e.dx -= e.acc * dt
 
-    if .isDown e.key.jump
-      e.dy = -e.jump if e.grounded
+    if .isDown e.jump
+      e.dy = -e.jump_height if e.grounded
 
 controller
