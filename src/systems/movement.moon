@@ -16,7 +16,11 @@ movement.process = (e, dt) =>
 
     for c in *cols
       if c.normal.y == -1
+        .dy = 0
         .grounded = true
+      else
+        if c.normal.y == 1
+          .dy = 0
 
       .dx = 0 if c.normal.x != 0
 
